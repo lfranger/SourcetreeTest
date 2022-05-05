@@ -44,6 +44,15 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = .link
         return loginButton
     }()
+    
+    lazy var registerButton: UIButton = {
+        let registerButton = UIButton()
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        registerButton.setTitle("Register", for: .normal)
+        registerButton.layer.cornerRadius = 8.0
+        registerButton.backgroundColor = .green
+        return registerButton
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
