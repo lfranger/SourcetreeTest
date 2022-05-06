@@ -47,18 +47,36 @@ class LoginViewController: UIViewController {
     
     lazy var registerButton: UIButton = {
         let registerButton = UIButton()
+        registerButton.addTarget(self, action: #selector(showRegisterView(_:)), for: .touchUpInside)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.setTitle("Register", for: .normal)
         registerButton.layer.cornerRadius = 8.0
         registerButton.backgroundColor = .green
         return registerButton
     }()
+    
+    //Stack View
+    lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.distribution = UIStackView.Distribution.fillEqually
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.spacing = 5.0
+        return stackView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupStackView()
         setupSubViews()
         setupConstraints()
+    }
+    
+    private func setupStackView() {
+        stackView.addArrangedSubview(registerButton)
+        stackView.addArrangedSubview(loginButton)
     }
     
     private func setupSubViews() {
@@ -66,12 +84,12 @@ class LoginViewController: UIViewController {
         view.addSubview(marvelLogoImageView)
         view.addSubview(usernameTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(loginButton)
+        view.addSubview(stackView)
     }
     
     private func setupConstraints() {
         var constraints = [NSLayoutConstraint]()
-        // Add
+        // Add constraints
         // MARK: marvelLogoImageView constraints
         constraints.append(marvelLogoImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor))
         constraints.append(marvelLogoImageView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -60))
@@ -85,14 +103,21 @@ class LoginViewController: UIViewController {
         constraints.append(passwordTextField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10))
         constraints.append(passwordTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 5))
         constraints.append(passwordTextField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10))
-        // MARK: loginButton constraints
-        constraints.append(loginButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 100))
-        constraints.append(loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5))
-        constraints.append(loginButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -100))
-        
-        //Activate
+        // MARK: stackView constraints
+        constraints.append(stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10))
+        constraints.append(stackView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5))
+        constraints.append(stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10))
+
+        //Activate constraints
         NSLayoutConstraint.activate(constraints)
         
+    }
+    
+    // MARK: registerButton functionality. When tapped will show the Register View
+    @objc
+    func showRegisterView(_ sender: UIButton){
+        let registerVC = RegisterViewController()
+        navigationController?.pushViewController(registerVC, animated: true)
     }
 
 }

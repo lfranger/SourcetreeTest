@@ -12,6 +12,7 @@
 		02D5E5432822B31000766630 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5E5422822B31000766630 /* LoginViewController.swift */; };
 		02D5E5482822B31500766630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02D5E5472822B31500766630 /* Assets.xcassets */; };
 		02D5E54B2822B31500766630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02D5E5492822B31500766630 /* LaunchScreen.storyboard */; };
+		02D5E5532824505600766630 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D5E5522824505600766630 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		02D5E5472822B31500766630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02D5E54A2822B31500766630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02D5E54C2822B31500766630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02D5E5522824505600766630 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				02D5E53E2822B31000766630 /* AppDelegate.swift */,
 				02D5E5402822B31000766630 /* SceneDelegate.swift */,
 				02D5E5422822B31000766630 /* LoginViewController.swift */,
+				02D5E5522824505600766630 /* RegisterViewController.swift */,
 				02D5E5472822B31500766630 /* Assets.xcassets */,
 				02D5E5492822B31500766630 /* LaunchScreen.storyboard */,
 				02D5E54C2822B31500766630 /* Info.plist */,
@@ -137,6 +140,7 @@
 				02D5E5432822B31000766630 /* LoginViewController.swift in Sources */,
 				02D5E53F2822B31000766630 /* AppDelegate.swift in Sources */,
 				02D5E5412822B31000766630 /* SceneDelegate.swift in Sources */,
+				02D5E5532824505600766630 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
