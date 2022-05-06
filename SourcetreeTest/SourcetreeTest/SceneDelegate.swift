@@ -19,11 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Create and set the window to be the same size as the screen
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        //window = UIWindow(frame: UIScreen.main.bounds)
+        //window = UIWindow(windowScene: windowScene)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let loginViewController = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: loginViewController)
         
         // Set an instance of LoginViewController 
-        window?.rootViewController = LoginViewController()
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
     }
