@@ -37,21 +37,22 @@ class LoginViewController: UIViewController {
     }()
     
     lazy var loginButton: UIButton = {
-        let loginButton = UIButton()
+        var configuration = UIButton.Configuration.filled()
+        configuration.baseBackgroundColor = UIColor.link
+        let loginButton = UIButton(configuration: configuration, primaryAction: nil)
+        loginButton.addTarget(self, action: #selector(userLogin(_:)), for: .touchUpInside)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.setTitle("Login", for: .normal)
-        loginButton.layer.cornerRadius = 8.0
-        loginButton.backgroundColor = .link
         return loginButton
     }()
     
     lazy var registerButton: UIButton = {
-        let registerButton = UIButton()
+        var configuration = UIButton.Configuration.filled()
+        configuration.baseBackgroundColor = UIColor.systemPink
+        let registerButton = UIButton(configuration: configuration, primaryAction: nil)
         registerButton.addTarget(self, action: #selector(showRegisterView(_:)), for: .touchUpInside)
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.setTitle("Register", for: .normal)
-        registerButton.layer.cornerRadius = 8.0
-        registerButton.backgroundColor = .green
         return registerButton
     }()
     
@@ -119,6 +120,10 @@ class LoginViewController: UIViewController {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
     }
+    
+    @objc
+    func userLogin(_ sender: UIButton) {
+        print("Login happens here!")
+    }
 
 }
-

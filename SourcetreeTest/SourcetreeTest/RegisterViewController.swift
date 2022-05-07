@@ -39,12 +39,12 @@ class RegisterViewController: UIViewController {
     }()
     
     lazy var confirmButton: UIButton = {
-        let confirmButton = UIButton()
-        //confirmButton.addTarget()
+        var configuration = UIButton.Configuration.filled()
+        configuration.baseBackgroundColor = UIColor.link
+        let confirmButton = UIButton(configuration: configuration, primaryAction: nil)
+        confirmButton.addTarget(self, action: #selector(confirmRegister(_:)), for: .touchUpInside)
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
         confirmButton.setTitle("Confirm", for: .normal)
-        confirmButton.layer.cornerRadius = 8.0
-        confirmButton.backgroundColor = .blue
         return confirmButton
     }()
     
@@ -99,6 +99,11 @@ class RegisterViewController: UIViewController {
         // Activate constraints
         NSLayoutConstraint.activate(constraints)
         
+    }
+    
+    @objc
+    func confirmRegister(_ sender: Any) {
+        print("Registration happens here")
     }
     
 }
